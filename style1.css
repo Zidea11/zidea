@@ -1,0 +1,15 @@
+.star-rating {
+    font-size: 2em; /* Adjust size as needed */
+    color: #ccc; /* Default color (unfilled stars) */
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .star-rating .star.active {
+    color: gold; /* Color for filled stars */
+    text-align: center;
+  }
+  h1{text-align: center;
+color: blue;}
+  body{text-align: center;
+    background-color: antiquewhite;}

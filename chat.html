@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Us</title><link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="chat.js">
+</head>
+<body>
+    <form action="/submit-form" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Submit">
+      </form>
+     <h1> Rate Us:</h1>
+      <div class="star-rating">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+      <script>
+      const stars = document.querySelectorAll('.star-rating .star');
+        let rating = 0;
+        
+        stars.forEach(star => {
+          star.addEventListener('click', function() {
+            rating = parseInt(this.dataset.value);
+            updateStars();
+          });
+        
+          star.addEventListener('mouseover', function() {
+            const hoverRating = parseInt(this.dataset.value);
+            highlightStars(hoverRating);
+          });
+        
+          star.addEventListener('mouseout', function() {
+            updateStars();
+          });
+        });
+        
+        function updateStars() {
+          stars.forEach(star => {
+            const starValue = parseInt(star.dataset.value);
+            if (starValue <= rating) {
+              star.classList.add('active');
+            } else {
+              star.classList.remove('active');
+            }
+          });
+        }
+        
+        function highlightStars(hoverRating) {
+          stars.forEach(star => {
+            const starValue = parseInt(star.dataset.value);
+            if (starValue <= hoverRating) {
+              star.classList.add('active');
+            } else {
+              star.classList.remove('active');
+            }
+          });
+        }
+        </script>
+</body>
+</html>
